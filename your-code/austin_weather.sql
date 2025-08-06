@@ -1350,3 +1350,27 @@ INSERT INTO austin_weather VALUES
     ('2017-07-29 00:00:00',107,92,77,'72','64','55','82','51','19','29.91','29.86','29.79','10','10','10','12','4','17','0',' '),
     ('2017-07-30 00:00:00',106,93,79,'70','68','63','69','48','27','29.96','29.91','29.87','10','10','10','13','4','20','0',' '),
     ('2017-07-31 00:00:00',99,88,77,'66','61','54','64','43','22','30.04','29.97','29.91','10','10','10','12','4','20','0',' ');
+
+
+SELECT * FROM austin_weather;
+
+-- How many days are recorded in the dataset?
+SELECT DISTINCT COUNT(*) FROM austin_weather;
+
+-- What is the day with the Highest Temperature in Fahrenheit (column TempHighF)
+SELECT * FROM austin_weather
+ORDER BY TempHighF DESC
+LIMIT 1;
+
+-- What is the average Humidity across all days? (column HumidityAvgPercent)
+SELECT AVG(HumidityAvgPercent)
+FROM austin_weather;
+
+-- Top 10 days, where SeaLevelPressureAvgInches is the highest, knowing DewPointAvgF is higher than 28 ?
+SELECT date FROM austin_weather
+WHERE DewPointAvgF > 28
+ORDER BY SeaLevelPressureAvgInches DESC
+LIMIT 10;
+
+
+-- DROP Table  IF EXISTS austin_weather;
